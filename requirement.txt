@@ -1,0 +1,6 @@
+chromadb>=0.6.0
+sentence-transformers==3.4.1
+groq==0.15.0
+python-dotenv==1.0.1
+streamlit>=1.40.0
+openrouter>=0.9.1
