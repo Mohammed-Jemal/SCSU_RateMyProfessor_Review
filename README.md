@@ -75,3 +75,5 @@ python store_and_search.py
 - The project currently uses local text files and a persistent ChromaDB store.
 - The pipeline can be extended to support question answering, Streamlit dashboards, or external LLM-driven summarization.
 - `chroma_db/` contains the indexed vector store and can be recreated by rerunning `store_and_search.py`.
+
+* *In the retrieval step, lower distance values indicates a closer semantic match between the query and the retrieved text chunk, while higher values indicates a weak/no match in from the chroma_db chunks.

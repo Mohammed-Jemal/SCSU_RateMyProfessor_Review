@@ -23,19 +23,19 @@ def vector_db(chunks, db_path= "./chroma_db"):
         metadata.append(chunk['metadata'])
         
         #Add the elements to the vector store
-        print(f"Adding {len(documents)} chunks to db")
+        #print(f"Adding {len(documents)} chunks to db")
         
         collection.add(
             ids=ids,
             documents=documents,
             metadatas=metadata
         )
-        print("Successfully indexed all the chunks into chromadb")
+        #print("Successfully indexed all the chunks into chromadb")
     return collection
-def retrive_context(query,collection, k=5):
+def retrive_context(query,collection, k=3):
     #quiring the top k semantically relivant chunks
     result= collection.query(
-        query_text=[query],
+        query_texts=[query],
         n_results=k
     )
     return result
@@ -52,7 +52,7 @@ if __name__=="__main__":
     print(f"This is the retrieval testing query:\n {test_query}")    
     print("*"*50) 
     
-    hits= retrive_context(test_query, collection=collection, k=5)
+    hits= retrive_context(test_query, collection=collection, k=3)
     
     #print the retrivied chunk and similarity score
     for idx in range(len(hits['documents'][0])):
